@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const axios = require('axios');
-const ErrorResponse = require('../helper/ErrorResponse')
+const ErrorResponse = require('../helper/errorResponse')
 
 dotenv.config({path: './config/config.env'});
 

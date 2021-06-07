@@ -1,5 +1,5 @@
 const poolDatabase = require('../config/db')
-const ErrorResponse = require('../helper/ErrorResponse')
+const ErrorResponse = require('../helper/errorResponse')
 
 const getAll = async (req, res, next) => {
     try {

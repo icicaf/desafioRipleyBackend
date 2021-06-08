@@ -50,7 +50,7 @@ _herramientas utilizadas_
 
 ## Licencia 📄
 
-[LICENSE.md](LICENSE.md) para detalles (agradecimientos a [villanuevand](https://github.com/villanuevand)
-)
+[LICENSE.md](LICENSE.md) para detalles
 
-
+## agradecimientos
+agradecimientos por el README a [villanuevand](https://github.com/villanuevand)

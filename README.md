@@ -29,6 +29,12 @@ Para correr en local
 - npm run dev
 ```
 
+### Documentación API 🔧
+
+_URL_
+https://documenter.getpostman.com/view/1799369/TzY7dDXP
+
+
 ## Construido con 🛠️
 
 _herramientas utilizadas_

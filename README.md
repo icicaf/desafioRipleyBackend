@@ -46,8 +46,11 @@ _herramientas utilizadas_
 
 ## Autor ✒️
 
-* **Cristian Aguayo** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
+* **Cristian Aguayo**
 
 ## Licencia 📄
 
-[LICENSE.md](LICENSE.md) para detalles
+[LICENSE.md](LICENSE.md) para detalles (agradecimientos a [villanuevand](https://github.com/villanuevand)
+)
+
+

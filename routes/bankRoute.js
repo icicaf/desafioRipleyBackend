@@ -1,9 +1,9 @@
 const express = require('express');
 const { Router } = require('express');
 
-const transfersController = require('../controllers/transfersController');
+const banksController = require('../controllers/bankController');
 const router = express.Router();
 
-router.get('/',transfersController.getAll);
+router.get('/',banksController.getAll);
 
 module.exports = router;

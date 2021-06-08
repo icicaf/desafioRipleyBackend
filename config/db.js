@@ -15,7 +15,7 @@ const poolDatabase = mysql.createPool(configDatabase);
 
 poolDatabase.getConnection(function(err, connection) {
     if(err) {
-       console.error('Error DB',err.code);
+       console.error('Error DB', err.code);
     }
 
     if(connection) {

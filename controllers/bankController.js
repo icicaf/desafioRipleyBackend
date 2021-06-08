@@ -11,7 +11,8 @@ const getAll = async (req, res, next) => {
                 console.log(response.data);
                 res.status(200).json(response.data.banks);
             })
-            .catch(err => res.send(err));
+            .catch(err => res.send(err)
+        );
     }
     catch(error){
         next(new ErrorResponse('Error',500));

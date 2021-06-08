@@ -3,12 +3,13 @@ const express = require('express')
 const morgan = require('morgan');
 const cors = require('cors')
 const errorHandler = require('./middleware/error')
+const security = require('./middleware/security')
 
 dotenv.config({path: './config/config.env'});
 
-const transfers = require('./routes/transfersRoute');
-const banks = require('./routes/banksRoute');
-const customers = require('./routes/customerRoute');
+const transfer = require('./routes/transferRoute');
+const bank = require('./routes/bankRoute');
+const customer = require('./routes/customerRoute');
 const destinatary = require('./routes/destinataryRoute');
 
 const app = express();
@@ -23,10 +24,10 @@ if(process.env.NODE_ENV === 'development'){
   app.use(morgan('dev'));
 }
 
-app.use('/api/transfers', transfers);
-app.use('/api/banks', banks);
-app.use('/api/customers', customers);
-app.use('/api/destinatary', destinatary);
+app.use('/api/transfer',security, transfer);
+app.use('/api/bank', security, bank);
+app.use('/api/customer', customer);
+app.use('/api/destinatary', security,destinatary);
 
 app.use(errorHandler);
 

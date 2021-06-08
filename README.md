@@ -9,11 +9,8 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 
 ### Pre-requisitos 📋
 
-_Nodejs v14.16.+ o superior
+_Nodejs v14.16.+ o superior_
 
-```
-EJEMPLO
-```
 
 ### Instalación 🔧
 

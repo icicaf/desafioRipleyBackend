@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "4d814d5e-3d23-48e4-b4d1-b14032517a7a",
+		"name": "DesafioRipley",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Backend",
+			"item": [
+				{
+					"name": "transfer - getAllByCustomerId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlHerokuApi}}/api/transfer/1",
+							"host": [
+								"{{urlHerokuApi}}"
+							],
+							"path": [
+								"api",
+								"transfer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transfer - insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transfer_nameDestinatary\": \"aguayo\",\r\n    \"transfer_rutDestinatary\": \"1114454\",\r\n    \"transfer_bankDestinatary\": \"banco santander\",\r\n    \"transfer_typeAccountDestinatary\": \"cuenta corriente\",\r\n    \"transfer_totalAmountDestinatary\": \"11454\",\r\n    \"customer_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlHerokuApi}}/api/transfer",
+							"host": [
+								"{{urlHerokuApi}}"
+							],
+							"path": [
+								"api",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bank - getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{urlHerokuApi}}/api/bank",
+							"host": [
+								"{{urlHerokuApi}}"
+							],
+							"path": [
+								"api",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer - login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_rut\": \"11\",\r\n    \"customer_password\": \"11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlHerokuApi}}/api/customer/login",
+							"host": [
+								"{{urlHerokuApi}}"
+							],
+							"path": [
+								"api",
+								"customer",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer - register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_rut\": \"11\",\r\n    \"customer_password\": \"11\",\r\n    \"customer_name\" :\"alejandra\",\r\n    \"customer_mail\": \"ale@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlHerokuApi}}/api/customer/register",
+							"host": [
+								"{{urlHerokuApi}}"
+							],
+							"path": [
+								"api",
+								"customer",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destinatary - insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"destinatary_rut\": \"1\",\r\n    \"destinatary_name\": \"aguayo\",\r\n    \"destinatary_mail\": \"asdasd@gmausl.com\",\r\n    \"destinatary_telephone\": \"9792954142\",\r\n    \"destinatary_bank\": \"banco santander\",\r\n    \"destinatary_typeAccount\": \"cuenta corriente\",\r\n    \"destinatary_numberAccount\": \"23482392874923\",\r\n    \"customer_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlHerokuApi}}/api/destinatary",
+							"host": [
+								"{{urlHerokuApi}}"
+							],
+							"path": [
+								"api",
+								"destinatary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destinatary - getAllByCustomerId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjMxNDE4ODksImV4cCI6MTYyMzIyODI4OX0.Qzl-l184zrqFolDPJWF6Mc0v_yhTCCCG4x4CKbQNTyU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlHerokuApi}}/api/destinatary/1",
+							"host": [
+								"{{urlHerokuApi}}"
+							],
+							"path": [
+								"api",
+								"destinatary",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Front",
+			"item": []
+		},
+		{
+			"name": "gateway",
+			"item": [
+				{
+					"name": "bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://bast.dev/api/banks.php",
+							"protocol": "https",
+							"host": [
+								"bast",
+								"dev"
+							],
+							"path": [
+								"api",
+								"banks.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

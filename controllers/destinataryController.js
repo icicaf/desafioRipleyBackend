@@ -7,7 +7,6 @@ const getAllByCustomerId = async (req, res, next) => {
             req.params.id], function(error, results, fields) {
             if (error) {
                 next(new ErrorResponse("Error",500));
-                console.log(error);
             } else {
                 if(results.length > 0) {
                     res.status(200).json({"status":200, "data": results});
@@ -34,7 +33,6 @@ const insert = async (req, res, next) => {
             req.body.customer_id], function(error, results, fields) {
                 if (error) {
                     next(new ErrorResponse("Error",500));
-                    console.log(error);
                 } else {
                     if(results.insertId > 0) {
                         res.status(200).json({"status":200, "data": {result:true}});

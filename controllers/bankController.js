@@ -8,7 +8,6 @@ const getAll = async (req, res, next) => {
     try{
         axios.get(process.env.EXTERNAL_API_URL_LIST_BANK)
             .then( (response) => {
-                console.log(response.data);
                 res.status(200).json(response.data.banks);
             })
             .catch(err => res.send(err)

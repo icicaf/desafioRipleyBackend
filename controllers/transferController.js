@@ -3,11 +3,25 @@ const ErrorResponse = require('../helper/errorResponse')
 
 const getAllByCustomerId = async (req, res, next) => {
     try {
-        poolDatabase.query("SELECT * FROM transfer WHERE customer_id=?",[
-            req.params.id], function(error, results, fields) {
+        poolDatabase.query(`SELECT 
+                                transfer_id,
+                                transfer_nameDestinatary,
+                                transfer_rutDestinatary,
+                                transfer_bankDestinatary,
+                                transfer_typeAccountDestinatary,
+                                DATE_FORMAT(created_at, '%d-%m-%Y %H:%i:%s') AS created_at,
+                                REPLACE(FORMAT(transfer_totalAmountDestinatary,
+                                        'Currency'),
+                                    ',',
+                                    '.') AS transfer_totalAmountDestinatary,
+                                customer_id
+                            FROM
+                                transfer
+                            WHERE customer_id=? 
+                            ORDER BY transfer_id DESC`,[
+            req.params.id], function(error, results) {
             if (error) {
                 next(new ErrorResponse("Error",500));
-                console.log(error);
             } else {
                 if(results.length > 0) {
                     res.status(200).json({"status":200, "data": results});
@@ -23,6 +37,7 @@ const getAllByCustomerId = async (req, res, next) => {
 
 const insert = async (req, res, next) => {
     try {
+        console.log(req);
         poolDatabase.query("INSERT INTO `dbdesafioripley`.`transfer` (`transfer_nameDestinatary`, `transfer_rutDestinatary`, `transfer_bankDestinatary`, `transfer_typeAccountDestinatary`, `transfer_totalAmountDestinatary`, `customer_id`) VALUES (?, ?, ?, ?, ?, ?)",[
             req.body.transfer_nameDestinatary,
             req.body.transfer_rutDestinatary,
@@ -32,22 +47,21 @@ const insert = async (req, res, next) => {
             req.body.customer_id], function (error, results, fields) {
                 if (error) {
                     next(new ErrorResponse("Error",500));
-                    console.log(error);
                 } else {
-                    console.log(results);
                     if(results.insertId) {
                         res.status(200).json({"status":200, "transfer":true});
                     } else {
                         res.status(200).json({"status":200, "transfer":false});
                     }
                 }
-            });
+            }
+        );
 
     } catch (error) {
         next(new ErrorResponse('Error',500));
     }
 }
-  
+
 module.exports = {
     getAllByCustomerId,
     insert

@@ -11,7 +11,6 @@ const login = async (req, res, next) => {
             md5(req.body.customer_password)], function (error, results, fields) {
                 if (error) {
                     next(new ErrorResponse("Error",500));
-                    console.log(error);
                 } else {
                     if(results.length > 0) {
                         const customer = new Customer(results[0]);
@@ -34,10 +33,8 @@ const getCustomer = async (req, res, next) => {
                
                 if (error) {
                     next(new ErrorResponse("Error",500));
-                    console.log(error);
                 } else {
                     if(results.length > 0) {
-                        console.log(results);
                         const customer = new Customer(results[0]);
                         const token = jwt.sign({customer_id: customer.customer_id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE});
                         res.status(200).json({"status":200, "login":true, "data": customer, "token": token, token });
@@ -60,7 +57,6 @@ const register = async (req, res, next) => {
             req.body.customer_mail], function (error, results, fields) {
                 if (error) {
                     next(new ErrorResponse("Error",500));
-                    console.log(error);
                 } else {
                     if(results.insertId) {
                         res.status(200).json({"status":200, "register":true});

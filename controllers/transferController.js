@@ -9,7 +9,7 @@ const getAllByCustomerId = async (req, res, next) => {
                                 transfer_rutDestinatary,
                                 transfer_bankDestinatary,
                                 transfer_typeAccountDestinatary,
-                                DATE_FORMAT(created_at, '%d-%m-%Y %H:%i:%s') AS created_at,
+                                DATE_FORMAT(created_at, '%d-%m-%Y %H:%i') AS created_at,
                                 REPLACE(FORMAT(transfer_totalAmountDestinatary,
                                         'Currency'),
                                     ',',

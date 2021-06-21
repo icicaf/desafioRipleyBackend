@@ -28,8 +28,9 @@ const login = async (req, res, next) => {
 
 const getCustomer = async (req, res, next) => {
     try {
+        console.log("params",req.params.id);
         poolDatabase.query("SELECT customer_id, customer_rut, customer_name, customer_mail, token FROM customer WHERE customer_id=?", [
-            req.body.customer_id], function (error, results, fields) {
+            req.params.id], function (error, results, fields) {
                
                 if (error) {
                     next(new ErrorResponse("Error",500));
@@ -37,7 +38,7 @@ const getCustomer = async (req, res, next) => {
                     if(results.length > 0) {
                         const customer = new Customer(results[0]);
                         const token = jwt.sign({customer_id: customer.customer_id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE});
-                        res.status(200).json({"status":200, "login":true, "data": customer, "token": token, token });
+                        res.status(200).json({"status":200, "login":true, "data": customer, "token": token });
                     } else {
                         res.status(200).json({"status":200, "login":false, "data": {}});
                     }
